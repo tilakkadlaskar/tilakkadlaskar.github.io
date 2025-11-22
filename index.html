@@ -1,279 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tilak Kadlaskar - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="icon" href="./Asset/Screenshot 2025-01-11 185141 - Copy.png" type="image/x-icon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tilak Kadlaskar | Research & Engineering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              serif: ['"Crimson Text"', 'serif'],
+              sans: ['Inter', 'sans-serif'],
+              mono: ['"JetBrains Mono"', 'monospace'],
+            },
+            colors: {
+              paper: '#0a0a0a',
+              ink: '#e5e5e5',
+              subtle: '#a1a1aa',
+              accent: '#3b82f6', // Academic blue
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html {
+        /* JS handles scrolling now to account for fixed header accurately */
+        background-color: #0a0a0a;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #0a0a0a;
+        color: #e5e5e5;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Crimson Text', serif;
+      }
+      .font-mono-code {
+        font-family: 'JetBrains Mono', monospace;
+      }
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0a0a0a;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #333;
+        border: 1px solid #0a0a0a;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      .math-grid {
+        background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 30px 30px;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
 </head>
-<body>
-    <nav class="navbar">
-        <div class="logo">TK</div>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#achievements">achievements</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-
-    <header id="home" class="hero">
-        <div class="hero-content">
-            <img src="/Asset/Tilak pic.jpeg" alt="Your Name" class="profile-img">
-            <h1>Tilak Kadlaskar</h1>
-            <p class="tagline">Web Developer & DevOps Engineer</p>
-            <div class="social-links">
-              <a href="https://github.com/tilakkadlaskar" class="social-icon"><i class="fab fa-github"></i></a>
-              <a href="https://www.linkedin.com/in/tilakkadlaskar/" class="social-icon"><i class="fab fa-linkedin"></i></a>
-              <a href="https://www.x.com/tilakkadlaskar/" class="social-icon"><i class="fab fa-twitter"></i></a>
-              <a href="https://www.instagram.com/tilakkadlaskar/" class="social-icon"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.facebook.com/tilakkadlaskar/" class="social-icon"><i class="fab fa-facebook"></i></a>
-              <a href="mailto:mail@tilakkadlaskar.me" class="social-icon"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
-    </header>
-
-    <section id="about" class="about">
-        <div class="section-header">
-            <h2>About Me</h2>
-            <div class="underline"></div>
-        </div>
-        <div class="about-content">
-            <p>Motivated Computer Science student with a strong foundation in programming, problem-solving, and emerging technologies. Currently expanding my expertise in web development and DevOps to build scalable, efficient, and innovative solutions. I am eager to apply my skills across diverse domains in Computer Science and gain practical experience through challenging opportunities.</p>
-            <a href="#contact" class="cta-button">Let's Connect</a>
-        </div>
-    </section>
-
-    <section id="skills" class="skills">
-        <div class="section-header">
-            <h2>My Skills</h2>
-            <div class="underline"></div>
-        </div>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <i class="fas fa-code"></i>
-                <h3>HTML5</h3>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 90%"></div>
-                </div>
-            </div>
-            <div class="skill-card">
-                <i class="fab fa-css3-alt"></i>
-                <h3>CSS3</h3>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 85%"></div>
-                </div>
-            </div>
-            <div class="skill-card">
-                <i class="fab fa-js"></i>
-                <h3>JavaScript</h3>
-                <div class="progress-bar">
-                    <div class="progress" style="width: 75%"></div>
-                </div>
-            </div>
-            <div class="skill-card">
-              <i class="fas fa-copyright"></i>
-              <h3>C</h3>
-              <div class="progress-bar">
-                  <div class="progress" style="width: 85%"></div>
-              </div>
-          </div>
-          
-          <div class="skill-card">
-              <i class="fab fa-java"></i>
-              <h3>Java</h3>
-              <div class="progress-bar">
-                  <div class="progress" style="width: 80%"></div>
-              </div>
-          </div>
-          
-          <div class="skill-card">
-              <i class="fab fa-python"></i>
-              <h3>Python</h3>
-              <div class="progress-bar">
-                  <div class="progress" style="width: 85%"></div>
-              </div>
-          </div>
-          
-          <div class="skill-card">
-              <i class="fas fa-database"></i>
-              <h3>SQL</h3>
-              <div class="progress-bar">
-                  <div class="progress" style="width: 75%"></div>
-              </div>
-          </div>
-          
-          <div class="skill-card">
-              <i class="fab fa-github"></i>
-              <h3>GitHub</h3>
-              <div class="progress-bar">
-                  <div class="progress" style="width: 85%"></div>
-              </div>
-          </div>
-        </div>
-    </section>
-
-    <section id="education" class="education">
-      <div class="section-header">
-          <h2>Education</h2>
-          <div class="underline"></div>
-      </div>
-      <div class="education-grid">
-          <div class="education-card">
-              <i class="fas fa-graduation-cap"></i>
-              <div class="education-content">
-                  <h3>Bachelor of Engineering</h3>
-                  <h4>Sai vidya institute of technology</h4>
-                  <p class="year">2021 - Present</p>
-                  <ul>
-                      <li>Major: Computer science and engineering (AI & ML)</li>
-                      <li>CGPA: 8.4</li>
-                      <li>Relevant Coursework: Data Structures, Algorithms, Database Management, Computer organisation, Atomata theory and compilar design</li>
-                  </ul>
-              </div>
-          </div>
-          
-          <div class="education-card">
-              <i class="fas fa-graduation-cap"></i>
-              <div class="education-content">
-                  <h4>Pre-University</h4>
-                  <h3>Govindram Seksaria Science PU College</h3>
-                  <p class="year">2019 - 2021</p>
-                  <ul>
-                      <li>Pre-University</li>
-                      <li>Percentage: 75%</li>
-                      <li>Relevant Coursework: Physics, Chemistry, Mathematics and Biology</li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-  </section>
-
-    <section id="experience" class="experience">
-      <div class="section-header">
-          <h2>Experience</h2>
-          <div class="underline"></div>
-      </div>
-      <div class="timeline">
-          <div class="timeline-item">
-              <div class="date"> 11 oct 2022- 31 oct 2022</div>
-              <div class="content">
-                  <h3>Java Skill Development</h3>
-                  <h4>QSPIDER</h4>
-                  <ul>
-                      <li> Learned designing applications involving Object-Oriented Programming concepts.</li>
-                      <li>Capable of imparting the core language features of Java and its Application Programming Interface (API).</li>
-                  </ul>
-              </div>
-          </div>
-          <div class="timeline-item">
-              <div class="date">17 May 2023- 2 Jun 2023</div>
-              <div class="content">
-                  <h3> Training Programming In Java Using Data Structures And SQL</h3>
-                  <h4> QSPIDERS CAMPUS CONNECT</h4>
-                  <ul>
-                      <li>Collaborated on a team to design and implement a Java application utilizing data structures and SQL.</li>
-                      <li>Developed and maintained software applications using Java data structures and SQL.</li>
-                  </ul>
-              </div>
-          </div>
-          <div class="timeline-item">
-            <div class="date">25 Oct 2023- 24 Nov 2023</div>
-            <div class="content">
-                <h3> Machine learning with Python</h3>
-                <h4> Analogica</h4>
-                <ul>
-                    <li>Participated in hands-on sessions covering key Machine Learning concepts and techniques.</li>
-                    <li>Acquired foundational skills in libraries such as NumPy & Pandas.</li>
-                </ul>
-            </div>
-        </div>
-      </div>
-  </section>
-
-    <section id="projects" class="projects">
-        <div class="section-header">
-            <h2>Projects</h2>
-            <div class="underline"></div>
-        </div>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="./Asset/Zerodha.png" alt="Zerodha Landing Page Preview">
-                </div>
-                <h3>Zerodha Landing Page</h3>
-                <p>Project description goes here.</p>
-                <div class="project-links">
-                    <a href="https://tilakkadlaskar.me/Zerodha-Landing-Page/" class="project-link">View Live</a>
-                    <a href="https://github.com/tilakkadlaskar/Zerodha-Landing-Page" class="project-link">Source Code</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="achievements" class="achievements">
-      <div class="section-header">
-          <h2>Achievements & Activities</h2>
-          <div class="underline"></div>
-      </div>
-      <div class="achievements-grid">
-          <!-- <div class="achievement-card">
-              <i class="fas fa-trophy"></i>
-              <h3>Achievements</h3>
-              <ul>
-                  <li>First place in coding competition</li>
-                  <li>Published research paper</li>
-                  <li>Dean's List 2022-2023</li>
-              </ul>
-          </div> -->
-          <div class="achievement-card">
-              <i class="fas fa-users"></i>
-              <h3>Extracurricular Activities</h3>
-              <ul>
-                  <li>Treasure, Aiera club of SVIT</li>
-                  <li>Member, Rotaract Club of SVIT</li>
-              </ul>
-          </div>
-          <div class="achievement-card">
-              <i class="fas fa-certificate"></i>
-              <h3>Certificates</h3>
-              <ul>
-                  <li>Data Structures Using Java – Infosys Springboard</li>
-                  <li>Artificial Intelligence with Python – Infosys Springboard</li>
-                  <li>Introduction to Data Science – Infosys Springboard</li>
-              </ul>
-          </div>
-      </div>
-  </section>
-
-    <section id="contact" class="contact">
-        <div class="section-header">
-            <h2>Get In Touch</h2>
-            <div class="underline"></div>
-        </div>
-        <div class="contact-container">
-            <form class="contact-form">
-                <div class="form-group">
-                    <input type="text" required>
-                    <label>Name</label>
-                </div>
-                <div class="form-group">
-                    <input type="email" required>
-                    <label>Email</label>
-                </div>
-                <div class="form-group">
-                    <textarea required></textarea>
-                    <label>Message</label>
-                </div>
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
-        </div>
-    </section>
+  <body class="antialiased selection:bg-white selection:text-black">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
 </body>
 </html>
